@@ -1,6 +1,7 @@
-pymupdf4llm
-llama-cpp-python
-rank-bm25
 streamlit
-pandas
+pymupdf
+pymupdf4llm
+sentence-transformers
+faiss-cpu
 numpy
+pandas
