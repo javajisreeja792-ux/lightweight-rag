@@ -1,32 +1,10 @@
-from llama_cpp import Llama
+import google.generativeai as genai
+import os
 
-llm = Llama(
-    model_path="models/Qwen2.5-3B-Instruct-Q4_K_M.gguf",
-    n_ctx=4096,
-    n_threads=8,
-    verbose=False
-)
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
-def ask_llm(question, context):
+model = genai.GenerativeModel("gemini-1.5-flash")
 
-    prompt = f"""
-You are a document assistant.
-
-Use ONLY the information in the context below.
-
-Context:
-{context}
-
-Question:
-{question}
-
-Answer:
-"""
-
-    output = llm(
-        prompt,
-        max_tokens=512,
-        temperature=0.1
-    )
-
-    return output["choices"][0]["text"]
+def ask_llm(prompt):
+    response = model.generate_content(prompt)
+    return response.text
