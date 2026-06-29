@@ -1,0 +1,14 @@
+stages:
+  - test
+
+image: python:3.13
+
+before_script:
+  - python -m pip install --upgrade pip
+  - pip install -r requirements.txt
+  - pip install pre-commit pytest bandit vulture mypy ruff black
+
+quality-checks:
+  stage: test
+  script:
+    - pre-commit run --all-files
