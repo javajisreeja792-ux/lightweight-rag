@@ -16,8 +16,7 @@ repos:
       - id: mypy
         pass_filenames: false
         args:
-          - --ignore-missing-imports
-          - --explicit-package-bases
+          - --config-file=mypy.ini
           - src
 
   - repo: https://github.com/PyCQA/bandit

@@ -1,9 +1,9 @@
 from pathlib import Path
 
-from extractor import pdf_to_markdown
-from chunker import split_sections
-from retriever import Retriever
-from llm import ask_llm
+from src.extractor import pdf_to_markdown
+from src.chunker import split_sections
+from src.retriever import Retriever
+from src.llm import ask_llm
 
 # Path to the PDF document
 PDF_PATH = "documents/Machine_Learning.pdf"
