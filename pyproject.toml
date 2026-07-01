@@ -3,10 +3,16 @@ name = "lightweight-rag"
 version = "0.1.0"
 description = "Lightweight RAG project"
 requires-python = ">=3.13"
+
 dependencies = [
-    "pymupdf4llm",
-    "llama-cpp-python",
     "streamlit",
+    "pymupdf",
+    "pymupdf4llm",
+    "sentence-transformers",
+    "faiss-cpu",
+    "numpy",
+    "rank-bm25",
+    "google-generativeai",
 ]
 
 [tool.ruff]
