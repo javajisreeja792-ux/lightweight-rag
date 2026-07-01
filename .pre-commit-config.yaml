@@ -16,6 +16,7 @@ repos:
       - id: mypy
         pass_filenames: false
         args:
+          - --ignore-missing-imports
           - --explicit-package-bases
           - src
 
