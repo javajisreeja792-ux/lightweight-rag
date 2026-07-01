@@ -1,14 +1,20 @@
-import os
+import streamlit as st
 import google.generativeai as genai
 
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+# Configure Gemini API
+genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
+# Load Gemini model
 model = genai.GenerativeModel("gemini-2.5-flash")
 
 
 def ask_llm(question, context):
     prompt = f"""
-Use the following context to answer the question.
+You are a helpful AI assistant.
+
+Answer the question using ONLY the context below.
+If the answer is not found in the context, say:
+"I couldn't find the answer in the provided document."
 
 Context:
 {context}
